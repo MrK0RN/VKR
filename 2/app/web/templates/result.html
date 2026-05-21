@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Результат диагностики{% endblock %}
+{% block content %}
+<h2>Результат</h2>
+
+<div class="scores">
+  <div class="score-card hyper">
+    <h3>{{ forms.hyper.label }}</h3>
+    <p class="score-value">{{ "%.0f"|format(result.score_hyper) }}</p>
+    <p class="score-id">позиция {{ forms.hyper.place_id }}</p>
+  </div>
+  <div class="score-card atrophic">
+    <h3>{{ forms.atrophic.label }}</h3>
+    <p class="score-value">{{ "%.0f"|format(result.score_atrophic) }}</p>
+    <p class="score-id">позиция {{ forms.atrophic.place_id }}</p>
+  </div>
+</div>
+
+<div class="verdict">
+  {% if result.tie and result.score_hyper == 0 and result.score_atrophic == 0 %}
+  <p>Обе формы: <strong>0 / 0</strong> баллов. Минимальный порог не применяется — результат отображается как есть.</p>
+  {% elif result.tie %}
+  <p><strong>Формы равновероятны по баллам</strong> ({{ result.score_hyper|int }} / {{ result.score_atrophic|int }}).</p>
+  {% else %}
+  <p>Наиболее вероятная форма: <strong>{{ result.winner_label }}</strong></p>
+  {% endif %}
+</div>
+
+{% if warnings %}
+<section class="warnings">
+  <h3>Предупреждения на переходах</h3>
+  <ul>
+    {% for w in warnings %}
+    <li>{{ w }}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% if result.contributions %}
+<section class="explain">
+  <h3>Вклад признаков</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Признак</th>
+        <th>Гипертрофическая</th>
+        <th>Атрофическая</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in result.contributions %}
+      <tr>
+        <td>{{ c.label }} <span class="pid">({{ c.place_id }})</span></td>
+        <td>{% if c.score_hyper %}+{{ c.score_hyper|int }}{% else %}—{% endif %}</td>
+        <td>{% if c.score_atrophic %}+{{ c.score_atrophic|int }}{% else %}—{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endif %}
+
+<div class="actions">
+  <a href="/step/{{ total_steps }}" class="btn btn-secondary">Назад к инструментальным</a>
+  <form method="post" action="/reset" style="display:inline">
+    <button type="submit" class="btn btn-primary">Новый опрос</button>
+  </form>
+</div>
+{% endblock %}

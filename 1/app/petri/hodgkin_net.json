@@ -1,0 +1,515 @@
+{
+  "meta": {
+    "disease": "Лимфома Ходжкина",
+    "forms": {
+      "nodular": {
+        "place_id": "b52",
+        "label": "Нодулярный склероз",
+        "score_key": "score_nodular"
+      },
+      "mixed": {
+        "place_id": "b53",
+        "label": "Смешанно-клеточный склероз",
+        "score_key": "score_mixed"
+      }
+    },
+    "source_document": "Сеть Петри Лимфома Ходжкина.docx",
+    "weight_notation": "Число в колонке формы — вес дуги к соответствующему score_*; (X) / (Y) — обе ветки при одной отметке."
+  },
+  "intermediate_places": {
+    "b9": {
+      "id": "b9",
+      "label": "Возможно заболевание нодулярной формой склероза",
+      "branch": "nodular",
+      "after_section": "complaints"
+    },
+    "b10": {
+      "id": "b10",
+      "label": "Возможно заболевание смешанно-клеточной формой склероза",
+      "branch": "mixed",
+      "after_section": "complaints"
+    },
+    "b11": {
+      "id": "b11",
+      "label": "Промежуточная позиция: ветка нодулярного склероза (после осмотра)",
+      "branch": "nodular",
+      "after_section": "examination"
+    },
+    "b12": {
+      "id": "b12",
+      "label": "Промежуточная позиция: ветка смешанно-клеточного склероза (после осмотра)",
+      "branch": "mixed",
+      "after_section": "examination"
+    },
+    "b26": {
+      "id": "b26",
+      "label": "Промежуточная позиция: ветка нодулярного склероза (после лаборатории)",
+      "branch": "nodular",
+      "after_section": "laboratory"
+    },
+    "b27": {
+      "id": "b27",
+      "label": "Промежуточная позиция: ветка смешанно-клеточного склероза (после лаборатории)",
+      "branch": "mixed",
+      "after_section": "laboratory"
+    },
+    "b42": {
+      "id": "b42",
+      "label": "Промежуточная позиция: ветка нодулярного склероза (после инструментальных)",
+      "branch": "nodular",
+      "after_section": "instrumental"
+    },
+    "b43": {
+      "id": "b43",
+      "label": "Промежуточная позиция: ветка смешанно-клеточного склероза (после инструментальных)",
+      "branch": "mixed",
+      "after_section": "instrumental"
+    }
+  },
+  "final_places": {
+    "nodular": "b52",
+    "mixed": "b53"
+  },
+  "places": {
+    "b1": {
+      "id": "b1",
+      "label": "Ощущение припухлости и распирания в области шеи",
+      "section": "complaints",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 2 }]
+    },
+    "b2": {
+      "id": "b2",
+      "label": "Кашель",
+      "section": "complaints",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b3": {
+      "id": "b3",
+      "label": "Отдышка",
+      "section": "complaints",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b4": {
+      "id": "b4",
+      "label": "Лихорадка >38°C не менее трёх дней без признаков воспаления",
+      "section": "complaints",
+      "input_type": "threshold_yes_no",
+      "arcs": [
+        { "target": "score_nodular", "weight": 1 },
+        { "target": "score_mixed", "weight": 2 }
+      ]
+    },
+    "b5": {
+      "id": "b5",
+      "label": "Проливные ночные поты",
+      "section": "complaints",
+      "input_type": "threshold_yes_no",
+      "arcs": [
+        { "target": "score_nodular", "weight": 1 },
+        { "target": "score_mixed", "weight": 2 }
+      ]
+    },
+    "b6": {
+      "id": "b6",
+      "label": "Необъяснимая потеря массы тела >10% за последние 6 месяцев",
+      "section": "complaints",
+      "input_type": "threshold_yes_no",
+      "arcs": [
+        { "target": "score_nodular", "weight": 1 },
+        { "target": "score_mixed", "weight": 2 }
+      ]
+    },
+    "b7": {
+      "id": "b7",
+      "label": "Боли в костях (позвонки, таз)",
+      "section": "complaints",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b8": {
+      "id": "b8",
+      "label": "Чувство тяжести и распирания в животе",
+      "section": "complaints",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b13": {
+      "id": "b13",
+      "label": "Увеличение шейных лимфоузлов",
+      "section": "examination",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b14": {
+      "id": "b14",
+      "label": "Увеличение лимфоузлов средостения",
+      "section": "examination",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b15": {
+      "id": "b15",
+      "label": "Набухание шейных вен",
+      "section": "examination",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b16": {
+      "id": "b16",
+      "label": "Отёк лица",
+      "section": "examination",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b17": {
+      "id": "b17",
+      "label": "Возраст: 15–35 лет",
+      "section": "examination",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b18": {
+      "id": "b18",
+      "label": "Спленомегалия",
+      "section": "examination",
+      "input_type": "boolean",
+      "arcs": [
+        { "target": "score_nodular", "weight": 1 },
+        { "target": "score_mixed", "weight": 2 }
+      ]
+    },
+    "b19": {
+      "id": "b19",
+      "label": "Пол: женщины",
+      "section": "examination",
+      "input_type": "exclusive_choice",
+      "exclusive_group": "sex",
+      "arcs": [
+        { "target": "score_nodular", "weight": 2 },
+        { "target": "score_mixed", "weight": 1 }
+      ]
+    },
+    "b20": {
+      "id": "b20",
+      "label": "Пол: мужчины",
+      "section": "examination",
+      "input_type": "exclusive_choice",
+      "exclusive_group": "sex",
+      "arcs": [
+        { "target": "score_nodular", "weight": 1 },
+        { "target": "score_mixed", "weight": 2 }
+      ]
+    },
+    "b21": {
+      "id": "b21",
+      "label": "Увеличение периферических лимфоузлов",
+      "section": "examination",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b22": {
+      "id": "b22",
+      "label": "Увеличение абдоминальных лимфоузлов",
+      "section": "examination",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b23": {
+      "id": "b23",
+      "label": "Увеличение забрюшинных лимфоузлов",
+      "section": "examination",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b24": {
+      "id": "b24",
+      "label": "Возраст: дети/пожилые 0–14 и 35 и старше",
+      "section": "examination",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b25": {
+      "id": "b25",
+      "label": "Наличие болезни ВИЧ",
+      "section": "examination",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_mixed", "weight": 2 }]
+    },
+    "b28": {
+      "id": "b28",
+      "label": "EBV− (<20%)",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "arcs": [{ "target": "score_mixed", "weight": 2 }]
+    },
+    "b29": {
+      "id": "b29",
+      "label": "Доминирование CD4+ T-клеток в микроокружении",
+      "section": "laboratory",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b30": {
+      "id": "b30",
+      "label": "Увеличение СОЭ (при отсутствии В-симптомов <50 мм/ч, при наличии – >50 мм/ч)",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b31": {
+      "id": "b31",
+      "label": "Повышение ЛДГ (>250 Ед/л)",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "arcs": [
+        { "target": "score_nodular", "weight": 1 },
+        { "target": "score_mixed", "weight": 2 }
+      ]
+    },
+    "b32": {
+      "id": "b32",
+      "label": "Лейкоцитоз (>11×10⁹/л, нейтрофилы 60–75%)",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "arcs": [
+        { "target": "score_nodular", "weight": 1 },
+        { "target": "score_mixed", "weight": 2 }
+      ]
+    },
+    "b33": {
+      "id": "b33",
+      "label": "Лимфопения (<1×10⁹/л)",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "arcs": [
+        { "target": "score_nodular", "weight": 1 },
+        { "target": "score_mixed", "weight": 2 }
+      ]
+    },
+    "b34": {
+      "id": "b34",
+      "label": "CD20+",
+      "section": "laboratory",
+      "input_type": "boolean",
+      "arcs": [
+        { "target": "score_nodular", "weight": 2 },
+        { "target": "score_mixed", "weight": 1 }
+      ]
+    },
+    "b35": {
+      "id": "b35",
+      "label": "Баланс CD4+/CD8+ T-клеток или CD8+ выше",
+      "section": "laboratory",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b36": {
+      "id": "b36",
+      "label": "Повышение ЩФ (кости/печень >150–300 Ед/л)",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b37": {
+      "id": "b37",
+      "label": "Увеличение СОЭ (>50 мм/ч)",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b38": {
+      "id": "b38",
+      "label": "EBV+ (70–90%)",
+      "section": "laboratory",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_mixed", "weight": 2 }]
+    },
+    "b39": {
+      "id": "b39",
+      "label": "Анемия (Hb <130 г/л у мужчин, <120 г/л у небеременных женщин, <110 г/л у беременных)",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b40": {
+      "id": "b40",
+      "label": "Эозинофилия (>0.4×10⁹/л)",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b41": {
+      "id": "b41",
+      "label": "Тромбоцитоз (>450×10⁹/л)",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b44": {
+      "id": "b44",
+      "label": "Рентген: увеличение средостения, часто массивное (МТИ > 0,33)",
+      "section": "instrumental",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 2 }]
+    },
+    "b45": {
+      "id": "b45",
+      "label": "УЗИ: поражение шейных лимфоузлов",
+      "section": "instrumental",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b46": {
+      "id": "b46",
+      "label": "УЗИ: поражение надключичных лимфоузлов",
+      "section": "instrumental",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b47": {
+      "id": "b47",
+      "label": "УЗИ: поражение подмышечных лимфоузлов",
+      "section": "instrumental",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b48": {
+      "id": "b48",
+      "label": "КТ: бугристые конгломераты переднего средостения",
+      "section": "instrumental",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b49": {
+      "id": "b49",
+      "label": "КТ/ПЭТ: локальный высокий захват ФДГ средостения",
+      "section": "instrumental",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b50": {
+      "id": "b50",
+      "label": "КТ/ПЭТ: диффузная абдоминальная лимфаденопатия + экстранодальные очаги",
+      "section": "instrumental",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b51": {
+      "id": "b51",
+      "label": "УЗИ: поражение абдоминальных/забрюшинных лимфоузлов (множественное)",
+      "section": "instrumental",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+    },
+    "b52": {
+      "id": "b52",
+      "label": "Нодулярный склероз",
+      "section": "final",
+      "place_type": "diagnosis_output"
+    },
+    "b53": {
+      "id": "b53",
+      "label": "Смешанно-клеточный склероз",
+      "section": "final",
+      "place_type": "diagnosis_output"
+    }
+  },
+  "sections": [
+    {
+      "id": "complaints",
+      "title": "Жалобы",
+      "order": 1,
+      "places": ["b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8"],
+      "intermediate_outputs": ["b9", "b10"]
+    },
+    {
+      "id": "examination",
+      "title": "Осмотр врачом",
+      "order": 2,
+      "places": ["b13", "b14", "b15", "b16", "b17", "b18", "b19", "b20", "b21", "b22", "b23", "b24", "b25"],
+      "intermediate_inputs": ["b11", "b12"],
+      "intermediate_outputs": ["b11", "b12"]
+    },
+    {
+      "id": "laboratory",
+      "title": "Лабораторное исследование",
+      "order": 3,
+      "places": ["b28", "b29", "b30", "b31", "b32", "b33", "b34", "b35", "b36", "b37", "b38", "b39", "b40", "b41"],
+      "intermediate_inputs": ["b26", "b27"],
+      "intermediate_outputs": ["b26", "b27"]
+    },
+    {
+      "id": "instrumental",
+      "title": "Инструментальные исследования",
+      "order": 4,
+      "places": ["b44", "b45", "b46", "b47", "b48", "b49", "b50", "b51"],
+      "intermediate_inputs": ["b42", "b43"],
+      "intermediate_outputs": ["b42", "b43"]
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t_complaints_to_exam",
+      "from_section": "complaints",
+      "to_section": "examination",
+      "aggregate_condition": "sum_weights_gt_zero",
+      "intermediate_on_fire": {
+        "nodular_branch": "b9",
+        "mixed_branch": "b10"
+      },
+      "warning_if_no_tokens": {
+        "message": "Не выявлено подозрений на нодулярную или смешанно-клеточную форму по жалобам."
+      }
+    },
+    {
+      "id": "t_examination_to_lab",
+      "from_section": "examination",
+      "to_section": "laboratory",
+      "aggregate_condition": "sum_weights_gt_zero",
+      "intermediate_on_fire": {
+        "nodular_branch": "b11",
+        "mixed_branch": "b12"
+      },
+      "warning_if_no_tokens": {
+        "message": "Не выявлено подозрений на нодулярную или смешанно-клеточную форму по осмотру."
+      }
+    },
+    {
+      "id": "t_laboratory_to_instrumental",
+      "from_section": "laboratory",
+      "to_section": "instrumental",
+      "aggregate_condition": "sum_weights_gt_zero",
+      "intermediate_on_fire": {
+        "nodular_branch": "b26",
+        "mixed_branch": "b27"
+      },
+      "warning_if_no_tokens": {
+        "message": "Не выявлено подозрений на нодулярную или смешанно-клеточную форму по лабораторным данным."
+      }
+    },
+    {
+      "id": "t_instrumental_to_final",
+      "from_section": "instrumental",
+      "to_section": "final",
+      "fire_condition": "any_one_marked",
+      "input_places": ["b44", "b45", "b46", "b47", "b48", "b49", "b50", "b51"],
+      "intermediate_on_fire": {
+        "nodular_branch": "b42",
+        "mixed_branch": "b43"
+      },
+      "output_places": ["b52", "b53"],
+      "note": "Переход b42→b52 и b43→b53 возможен при выполнении хотя бы одного признака b44–b51 из последнего блока."
+    }
+  ],
+  "rules": {
+    "no_minimum_diagnosis_threshold": true,
+    "instrumental_any_one_marked": {
+      "applies_to": ["b44", "b45", "b46", "b47", "b48", "b49", "b50", "b51"],
+      "description": "Для срабатывания перехода к финалу по инструментальному блоку достаточно ≥1 отмеченного признака с любым весом."
+    },
+    "empty_instrumental_still_finalize": true
+  }
+}

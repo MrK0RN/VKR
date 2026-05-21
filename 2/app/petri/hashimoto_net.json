@@ -1,0 +1,446 @@
+{
+  "meta": {
+    "disease": "Хронический аутоиммунный тиреоидит (ХАТ)",
+    "forms": {
+      "hyper": {
+        "place_id": "b41",
+        "label": "Гипертрофическая форма ХАТ",
+        "score_key": "score_hyper"
+      },
+      "atrophic": {
+        "place_id": "b42",
+        "label": "Атрофическая форма ХАТ",
+        "score_key": "score_atrophic"
+      }
+    },
+    "source_document": "Сеть Петри болезнь Хашимото.pdf",
+    "weight_notation": "(N) в колонке формы — вес дуги к score_hyper или score_atrophic; (X) / (Y) — обе ветки."
+  },
+  "intermediate_places": {
+    "b10": {
+      "id": "b10",
+      "label": "Подозрение на гипертрофическую форму ХАТ",
+      "branch": "hyper",
+      "after_section": "complaints"
+    },
+    "b11": {
+      "id": "b11",
+      "label": "Подозрение на атрофическую форму ХАТ",
+      "branch": "atrophic",
+      "after_section": "complaints"
+    },
+    "b12": {
+      "id": "b12",
+      "label": "Промежуточная позиция: ветка гипертрофического ХАТ (после осмотра)",
+      "branch": "hyper",
+      "after_section": "examination"
+    },
+    "b13": {
+      "id": "b13",
+      "label": "Промежуточная позиция: ветка атрофического ХАТ (после осмотра)",
+      "branch": "atrophic",
+      "after_section": "examination"
+    },
+    "b21": {
+      "id": "b21",
+      "label": "Промежуточная позиция: ветка гипертрофического ХАТ (после лаборатории)",
+      "branch": "hyper",
+      "after_section": "laboratory"
+    },
+    "b22": {
+      "id": "b22",
+      "label": "Промежуточная позиция: ветка атрофического ХАТ (после лаборатории)",
+      "branch": "atrophic",
+      "after_section": "laboratory"
+    },
+    "b35": {
+      "id": "b35",
+      "label": "Промежуточная позиция: ветка гипертрофического ХАТ (после инструментальных)",
+      "branch": "hyper",
+      "after_section": "instrumental"
+    },
+    "b36": {
+      "id": "b36",
+      "label": "Промежуточная позиция: ветка атрофического ХАТ (после инструментальных)",
+      "branch": "atrophic",
+      "after_section": "instrumental"
+    }
+  },
+  "final_places": {
+    "hyper": "b41",
+    "atrophic": "b42"
+  },
+  "places": {
+    "b1": {
+      "id": "b1",
+      "label": "Ощущение «кома» в шее",
+      "section": "complaints",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_hyper", "weight": 2 }]
+    },
+    "b2": {
+      "id": "b2",
+      "label": "Дискомфорт при глотании",
+      "section": "complaints",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_hyper", "weight": 1 }]
+    },
+    "b3": {
+      "id": "b3",
+      "label": "Затруднение дыхания",
+      "section": "complaints",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_hyper", "weight": 1 }]
+    },
+    "b4": {
+      "id": "b4",
+      "label": "Общая слабость, утомляемость",
+      "section": "complaints",
+      "input_type": "boolean",
+      "arcs": [
+        { "target": "score_hyper", "weight": 1 },
+        { "target": "score_atrophic", "weight": 1 }
+      ]
+    },
+    "b5": {
+      "id": "b5",
+      "label": "Сонливость",
+      "section": "complaints",
+      "input_type": "boolean",
+      "arcs": [
+        { "target": "score_hyper", "weight": 1 },
+        { "target": "score_atrophic", "weight": 2 }
+      ]
+    },
+    "b6": {
+      "id": "b6",
+      "label": "Увеличение массы тела",
+      "section": "complaints",
+      "input_type": "boolean",
+      "arcs": [
+        { "target": "score_hyper", "weight": 1 },
+        { "target": "score_atrophic", "weight": 2 }
+      ]
+    },
+    "b7": {
+      "id": "b7",
+      "label": "Сухость кожи",
+      "section": "complaints",
+      "input_type": "boolean",
+      "arcs": [
+        { "target": "score_hyper", "weight": 1 },
+        { "target": "score_atrophic", "weight": 2 }
+      ]
+    },
+    "b8": {
+      "id": "b8",
+      "label": "Выпадение волос",
+      "section": "complaints",
+      "input_type": "boolean",
+      "arcs": [
+        { "target": "score_hyper", "weight": 1 },
+        { "target": "score_atrophic", "weight": 2 }
+      ]
+    },
+    "b9": {
+      "id": "b9",
+      "label": "Нарушение менструального цикла",
+      "section": "complaints",
+      "input_type": "boolean",
+      "arcs": [
+        { "target": "score_hyper", "weight": 1 },
+        { "target": "score_atrophic", "weight": 1 }
+      ]
+    },
+    "b14": {
+      "id": "b14",
+      "label": "Увеличение шеи в области щитовидной железы",
+      "section": "examination",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_hyper", "weight": 2 }]
+    },
+    "b15": {
+      "id": "b15",
+      "label": "Сухость кожи",
+      "section": "examination",
+      "input_type": "boolean",
+      "arcs": [
+        { "target": "score_hyper", "weight": 1 },
+        { "target": "score_atrophic", "weight": 2 }
+      ]
+    },
+    "b16": {
+      "id": "b16",
+      "label": "Пол: мужчина",
+      "section": "examination",
+      "input_type": "exclusive_choice",
+      "exclusive_group": "sex",
+      "arcs": [{ "target": "score_hyper", "weight": 1 }]
+    },
+    "b17": {
+      "id": "b17",
+      "label": "Пол: женщина",
+      "section": "examination",
+      "input_type": "exclusive_choice",
+      "exclusive_group": "sex",
+      "arcs": [{ "target": "score_hyper", "weight": 2 }]
+    },
+    "b18": {
+      "id": "b18",
+      "label": "Возраст <60 лет",
+      "section": "examination",
+      "input_type": "exclusive_choice",
+      "exclusive_group": "age",
+      "arcs": [{ "target": "score_hyper", "weight": 1 }]
+    },
+    "b19": {
+      "id": "b19",
+      "label": "Возраст >60 лет",
+      "section": "examination",
+      "input_type": "exclusive_choice",
+      "exclusive_group": "age",
+      "arcs": [{ "target": "score_hyper", "weight": 2 }]
+    },
+    "b20": {
+      "id": "b20",
+      "label": "Уменьшение щитовидной железы",
+      "section": "examination",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_atrophic", "weight": 2 }]
+    },
+    "b23": {
+      "id": "b23",
+      "label": "ТТГ повышен: 4,5–15 мкМЕ/мл",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "laboratory_branch": "hyper",
+      "arcs": [{ "target": "score_hyper", "weight": 1 }]
+    },
+    "b24": {
+      "id": "b24",
+      "label": "Свободный Т4 норма/повышен: 8–12 пмоль/л",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "laboratory_branch": "hyper",
+      "arcs": [{ "target": "score_hyper", "weight": 1 }]
+    },
+    "b25": {
+      "id": "b25",
+      "label": "Свободный Т3 норма/повышен: >5.8 пмоль/л",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "laboratory_branch": "hyper",
+      "arcs": [{ "target": "score_hyper", "weight": 1 }]
+    },
+    "b26": {
+      "id": "b26",
+      "label": "АТ-ТПО повышен: >500 МЕ/мл",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "laboratory_branch": "hyper",
+      "arcs": [{ "target": "score_hyper", "weight": 1 }]
+    },
+    "b27": {
+      "id": "b27",
+      "label": "Гемоглобин снижен: <110–120 г/л",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "laboratory_branch": "hyper",
+      "arcs": [{ "target": "score_hyper", "weight": 1 }]
+    },
+    "b28": {
+      "id": "b28",
+      "label": "Липидный профиль повышен: >6.5 ммоль/л; >3.5 ммоль/л",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "laboratory_branch": "hyper",
+      "arcs": [{ "target": "score_hyper", "weight": 1 }]
+    },
+    "b29": {
+      "id": "b29",
+      "label": "ТТГ резко повышен: >20 мкМЕ/мл",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "laboratory_branch": "atrophic",
+      "arcs": [{ "target": "score_atrophic", "weight": 1 }]
+    },
+    "b30": {
+      "id": "b30",
+      "label": "Свободный Т4 резко снижен: <5 пмоль/л",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "laboratory_branch": "atrophic",
+      "arcs": [{ "target": "score_atrophic", "weight": 1 }]
+    },
+    "b31": {
+      "id": "b31",
+      "label": "Свободный Т3 снижен: <2.6 пмоль/л",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "laboratory_branch": "atrophic",
+      "arcs": [{ "target": "score_atrophic", "weight": 1 }]
+    },
+    "b32": {
+      "id": "b32",
+      "label": "АТ-ТПО сильно повышен: >1000 МЕ/мл",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "laboratory_branch": "atrophic",
+      "arcs": [{ "target": "score_atrophic", "weight": 1 }]
+    },
+    "b33": {
+      "id": "b33",
+      "label": "Гемоглобин снижен: <100 г/л",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "laboratory_branch": "atrophic",
+      "arcs": [{ "target": "score_atrophic", "weight": 1 }]
+    },
+    "b34": {
+      "id": "b34",
+      "label": "Липидный профиль: >8 ммоль/л; >4,5 ммоль/л",
+      "section": "laboratory",
+      "input_type": "threshold_yes_no",
+      "laboratory_branch": "atrophic",
+      "arcs": [{ "target": "score_atrophic", "weight": 1 }]
+    },
+    "b37": {
+      "id": "b37",
+      "label": "УЗИ: увеличение объёма щитовидной железы",
+      "section": "instrumental",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_hyper", "weight": 1 }]
+    },
+    "b38": {
+      "id": "b38",
+      "label": "МРТ: увеличение объёма щитовидной железы",
+      "section": "instrumental",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_hyper", "weight": 1 }]
+    },
+    "b39": {
+      "id": "b39",
+      "label": "УЗИ: уменьшение объёма щитовидной железы",
+      "section": "instrumental",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_atrophic", "weight": 1 }]
+    },
+    "b40": {
+      "id": "b40",
+      "label": "МРТ: уменьшение объёма щитовидной железы",
+      "section": "instrumental",
+      "input_type": "boolean",
+      "arcs": [{ "target": "score_atrophic", "weight": 1 }]
+    },
+    "b41": {
+      "id": "b41",
+      "label": "Гипертрофическая форма ХАТ",
+      "section": "final",
+      "place_type": "diagnosis_output"
+    },
+    "b42": {
+      "id": "b42",
+      "label": "Атрофическая форма ХАТ",
+      "section": "final",
+      "place_type": "diagnosis_output"
+    }
+  },
+  "sections": [
+    {
+      "id": "complaints",
+      "title": "Жалобы",
+      "order": 1,
+      "places": ["b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9"],
+      "intermediate_outputs": ["b10", "b11"]
+    },
+    {
+      "id": "examination",
+      "title": "Осмотр",
+      "order": 2,
+      "places": ["b14", "b15", "b16", "b17", "b18", "b19", "b20"],
+      "intermediate_inputs": ["b12", "b13"],
+      "intermediate_outputs": ["b12", "b13"]
+    },
+    {
+      "id": "laboratory",
+      "title": "Лабораторное исследование",
+      "order": 3,
+      "places": ["b23", "b24", "b25", "b26", "b27", "b28", "b29", "b30", "b31", "b32", "b33", "b34"],
+      "intermediate_inputs": ["b21", "b22"],
+      "intermediate_outputs": ["b21", "b22"],
+      "laboratory_groups": {
+        "hyper": ["b23", "b24", "b25", "b26", "b27", "b28"],
+        "atrophic": ["b29", "b30", "b31", "b32", "b33", "b34"]
+      }
+    },
+    {
+      "id": "instrumental",
+      "title": "Инструментальные исследования",
+      "order": 4,
+      "places": ["b37", "b38", "b39", "b40"],
+      "intermediate_inputs": ["b35", "b36"],
+      "intermediate_outputs": ["b35", "b36"]
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t_complaints_to_exam",
+      "from_section": "complaints",
+      "to_section": "examination",
+      "aggregate_condition": "sum_weights_gt_zero",
+      "intermediate_on_fire": {
+        "hyper_branch": "b10",
+        "atrophic_branch": "b11"
+      },
+      "warning_if_no_tokens": {
+        "message": "Не выявлено подозрений для диагностики гипертрофического и атрофического ХАТ по жалобам."
+      }
+    },
+    {
+      "id": "t_examination_to_lab",
+      "from_section": "examination",
+      "to_section": "laboratory",
+      "aggregate_condition": "sum_weights_gt_zero",
+      "intermediate_on_fire": {
+        "hyper_branch": "b12",
+        "atrophic_branch": "b13"
+      },
+      "warning_if_no_tokens": {
+        "message": "Не выявлено подозрений для диагностики гипертрофического и атрофического ХАТ по осмотру."
+      }
+    },
+    {
+      "id": "t_laboratory_to_instrumental",
+      "from_section": "laboratory",
+      "to_section": "instrumental",
+      "aggregate_condition": "sum_weights_gt_zero",
+      "intermediate_on_fire": {
+        "hyper_branch": "b21",
+        "atrophic_branch": "b22"
+      },
+      "warning_if_no_tokens": {
+        "message": "Не выявлено подозрений для диагностики гипертрофического и атрофического ХАТ по лабораторным данным."
+      }
+    },
+    {
+      "id": "t_instrumental_to_final",
+      "from_section": "instrumental",
+      "to_section": "final",
+      "fire_condition": "any_one_marked",
+      "input_places": ["b37", "b38", "b39", "b40"],
+      "intermediate_on_fire": {
+        "hyper_branch": "b35",
+        "atrophic_branch": "b36"
+      },
+      "output_places": ["b41", "b42"]
+    }
+  ],
+  "rules": {
+    "no_minimum_diagnosis_threshold": true,
+    "instrumental_any_one_marked": {
+      "applies_to": ["b37", "b38", "b39", "b40"],
+      "description": "Для срабатывания перехода к финалу по инструментальному блоку достаточно ≥1 отмеченного признака."
+    },
+    "empty_instrumental_still_finalize": true
+  }
+}

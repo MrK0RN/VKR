@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}{{ section.title }} — шаг {{ step }}{% endblock %}
+{% block content %}
+<nav class="steps" aria-label="Прогресс">
+  {% for i in range(1, total_steps + 1) %}
+  <span class="step-dot {% if i == step %}active{% elif i < step %}done{% endif %}">{{ i }}</span>
+  {% endfor %}
+</nav>
+
+<h2>{{ section.title }}</h2>
+<p class="hint">Шаг {{ step }} из {{ total_steps }}. Отметьте признаки, которые присутствуют у пациента.</p>
+
+{% if pending_warning %}
+<div class="alert" role="alert">{{ pending_warning }}</div>
+{% endif %}
+
+<form method="post" action="/step/{{ step }}" class="survey-form">
+  {% for place in places %}
+  <div class="field {% if place.input_type == 'threshold_yes_no' %}field-threshold{% endif %}">
+    {% if place.input_type == 'threshold_yes_no' %}
+    <p class="label">{{ place.label }}</p>
+    <p class="threshold-hint">Показатель превышает порог?</p>
+    <div class="radio-row">
+      <label><input type="radio" name="{{ place.id }}" value="yes" {% if place.checked %}checked{% endif %}> Да</label>
+      <label><input type="radio" name="{{ place.id }}" value="no" {% if not place.checked %}checked{% endif %}> Нет</label>
+    </div>
+    {% else %}
+    <label class="checkbox-label">
+      <input type="checkbox" name="{{ place.id }}" value="on" {% if place.checked %}checked{% endif %}>
+      <span>{{ place.label }}</span>
+    </label>
+    {% endif %}
+  </div>
+  {% endfor %}
+
+  {% for group_name, options in exclusive_groups.items() %}
+  <fieldset class="field exclusive-group">
+    <legend>Пол</legend>
+    <label><input type="radio" name="group_{{ group_name }}" value="" {% if options[0].group_unspecified %}checked{% endif %}> Не указано</label>
+    {% for opt in options %}
+    <label><input type="radio" name="group_{{ group_name }}" value="{{ opt.id }}" {% if opt.checked %}checked{% endif %}> {{ opt.label }}</label>
+    {% endfor %}
+  </fieldset>
+  {% endfor %}
+
+  <div class="actions">
+    {% if step > 1 %}
+    <a href="/step/{{ step - 1 }}" class="btn btn-secondary">Назад</a>
+    {% endif %}
+    <button type="submit" class="btn btn-primary">
+      {% if step < total_steps %}Далее{% else %}Показать результат{% endif %}
+    </button>
+  </div>
+</form>
+{% endblock %}

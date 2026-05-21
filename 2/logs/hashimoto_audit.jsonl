@@ -1,0 +1,128 @@
+{"ts": "2026-05-19T22:13:34.050565Z", "event": "session_started", "session_id": "ghdiN0p9YsoElI5_DvCcEw"}
+{"ts": "2026-05-19T22:14:02.491308Z", "event": "session_started", "session_id": "8ITFchFBn8z9Q03jK0aCCg"}
+{"ts": "2026-05-19T22:14:02.501828Z", "event": "section_submitted", "session_id": "8ITFchFBn8z9Q03jK0aCCg", "section": "complaints", "marked_places": ["b1"], "scores_after": {"score_hyper": 2.0, "score_atrophic": 0.0}, "transition": {"id": "t_complaints_to_exam", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:15:41.547203Z", "event": "session_started", "session_id": "WTelKV_6ZTUUD5iJ78tgRw"}
+{"ts": "2026-05-19T22:15:41.582346Z", "event": "diagnosis_completed", "session_id": "WTelKV_6ZTUUD5iJ78tgRw", "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "winner": null, "tie": true}
+{"ts": "2026-05-19T22:15:41.588463Z", "event": "diagnosis_completed", "session_id": "WTelKV_6ZTUUD5iJ78tgRw", "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "winner": null, "tie": true}
+{"ts": "2026-05-19T22:15:41.592054Z", "event": "section_submitted", "session_id": "WTelKV_6ZTUUD5iJ78tgRw", "section": "complaints", "marked_places": ["b1", "b4"], "scores_after": {"score_hyper": 3.0, "score_atrophic": 1.0}, "transition": {"id": "t_complaints_to_exam", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:15:41.595259Z", "event": "section_submitted", "session_id": "WTelKV_6ZTUUD5iJ78tgRw", "section": "examination", "marked_places": ["b14", "b17"], "scores_after": {"score_hyper": 7.0, "score_atrophic": 1.0}, "transition": {"id": "t_examination_to_lab", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:15:41.597508Z", "event": "section_submitted", "session_id": "WTelKV_6ZTUUD5iJ78tgRw", "section": "laboratory", "marked_places": ["b23", "b29"], "scores_after": {"score_hyper": 8.0, "score_atrophic": 2.0}, "transition": {"id": "t_laboratory_to_instrumental", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:15:41.599780Z", "event": "section_submitted", "session_id": "WTelKV_6ZTUUD5iJ78tgRw", "section": "instrumental", "marked_places": ["b37"], "scores_after": {"score_hyper": 9.0, "score_atrophic": 2.0}, "transition": {"id": "t_instrumental_to_final", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:15:41.600975Z", "event": "diagnosis_completed", "session_id": "WTelKV_6ZTUUD5iJ78tgRw", "scores_after": {"score_hyper": 9.0, "score_atrophic": 2.0}, "winner": "hyper", "tie": false}
+{"ts": "2026-05-19T22:15:41.605823Z", "event": "section_submitted", "session_id": "WTelKV_6ZTUUD5iJ78tgRw", "section": "examination", "marked_places": [], "scores_after": {"score_hyper": 5.0, "score_atrophic": 2.0}, "transition": {"id": "t_examination_to_lab", "fired": false}, "warning_shown": "Не выявлено подозрений для диагностики гипертрофического и атрофического ХАТ по осмотру."}
+{"ts": "2026-05-19T22:15:41.610852Z", "event": "session_started", "session_id": "v8IhzQHKEWpfNvsb3ST-CA"}
+{"ts": "2026-05-19T22:15:41.614833Z", "event": "section_submitted", "session_id": "v8IhzQHKEWpfNvsb3ST-CA", "section": "complaints", "marked_places": ["b1"], "scores_after": {"score_hyper": 2.0, "score_atrophic": 0.0}, "transition": {"id": "t_complaints_to_exam", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:15:41.623310Z", "event": "section_submitted", "session_id": "v8IhzQHKEWpfNvsb3ST-CA", "section": "complaints", "marked_places": [], "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "transition": {"id": "t_complaints_to_exam", "fired": false}, "warning_shown": "Не выявлено подозрений для диагностики гипертрофического и атрофического ХАТ по жалобам."}
+{"ts": "2026-05-19T22:17:47.515913Z", "event": "session_started", "session_id": "o2dF5dRGaN55EUSvcreLQg"}
+{"ts": "2026-05-19T22:17:47.526664Z", "event": "session_started", "session_id": "E5UlN5v7GSrqblRpaVh3rQ"}
+{"ts": "2026-05-19T22:17:47.529965Z", "event": "session_started", "session_id": "fe5B88b9FPd2sIy0W4GhTQ"}
+{"ts": "2026-05-19T22:17:47.531918Z", "event": "session_started", "session_id": "LeitSnQrw1YYMqHjtr6RFg"}
+{"ts": "2026-05-19T22:17:47.534107Z", "event": "session_started", "session_id": "sDPO3wTBV24RI79_iLktaA"}
+{"ts": "2026-05-19T22:17:47.536416Z", "event": "session_started", "session_id": "et8jXFqCdu_HmWUhP3NblA"}
+{"ts": "2026-05-19T22:17:47.538108Z", "event": "session_started", "session_id": "dWQQZaP5_374WBrEmahvvg"}
+{"ts": "2026-05-19T22:17:47.539700Z", "event": "session_started", "session_id": "cmJ-JYd1s0a0-soPNb4E_Q"}
+{"ts": "2026-05-19T22:17:47.541391Z", "event": "diagnosis_completed", "session_id": "cmJ-JYd1s0a0-soPNb4E_Q", "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "winner": null, "tie": true}
+{"ts": "2026-05-19T22:17:47.550005Z", "event": "session_started", "session_id": "-r1ArCivUpRSRwygv9Et9w"}
+{"ts": "2026-05-19T22:17:47.550073Z", "event": "diagnosis_completed", "session_id": "-r1ArCivUpRSRwygv9Et9w", "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "winner": null, "tie": true}
+{"ts": "2026-05-19T22:17:47.552603Z", "event": "session_started", "session_id": "L4qrYl2omyjuXT8Gfoh09A"}
+{"ts": "2026-05-19T22:17:47.555113Z", "event": "section_submitted", "session_id": "L4qrYl2omyjuXT8Gfoh09A", "section": "complaints", "marked_places": ["b1", "b4"], "scores_after": {"score_hyper": 3.0, "score_atrophic": 1.0}, "transition": {"id": "t_complaints_to_exam", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:17:47.592663Z", "event": "section_submitted", "session_id": "L4qrYl2omyjuXT8Gfoh09A", "section": "examination", "marked_places": ["b14", "b17"], "scores_after": {"score_hyper": 7.0, "score_atrophic": 1.0}, "transition": {"id": "t_examination_to_lab", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:17:47.623448Z", "event": "section_submitted", "session_id": "L4qrYl2omyjuXT8Gfoh09A", "section": "laboratory", "marked_places": ["b23", "b29"], "scores_after": {"score_hyper": 8.0, "score_atrophic": 2.0}, "transition": {"id": "t_laboratory_to_instrumental", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:17:47.636254Z", "event": "section_submitted", "session_id": "L4qrYl2omyjuXT8Gfoh09A", "section": "instrumental", "marked_places": ["b37"], "scores_after": {"score_hyper": 9.0, "score_atrophic": 2.0}, "transition": {"id": "t_instrumental_to_final", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:17:47.636506Z", "event": "diagnosis_completed", "session_id": "L4qrYl2omyjuXT8Gfoh09A", "scores_after": {"score_hyper": 9.0, "score_atrophic": 2.0}, "winner": "hyper", "tie": false}
+{"ts": "2026-05-19T22:17:47.648454Z", "event": "session_started", "session_id": "3M68PU-yiCKAQs6A48oApQ"}
+{"ts": "2026-05-19T22:17:47.651843Z", "event": "section_submitted", "session_id": "3M68PU-yiCKAQs6A48oApQ", "section": "examination", "marked_places": [], "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "transition": {"id": "t_examination_to_lab", "fired": false}, "warning_shown": "Не выявлено подозрений для диагностики гипертрофического и атрофического ХАТ по осмотру."}
+{"ts": "2026-05-19T22:17:47.654029Z", "event": "session_started", "session_id": "AGw_Lfa4uvuHU5S-VZ2eFg"}
+{"ts": "2026-05-19T22:17:47.655538Z", "event": "session_started", "session_id": "WUghu8wtG9jPkCVbBI8MVA"}
+{"ts": "2026-05-19T22:17:47.659482Z", "event": "session_started", "session_id": "Qhu0NY8sAQmAdz0DT5moTA"}
+{"ts": "2026-05-19T22:17:47.659833Z", "event": "section_submitted", "session_id": "Qhu0NY8sAQmAdz0DT5moTA", "section": "complaints", "marked_places": ["b1"], "scores_after": {"score_hyper": 2.0, "score_atrophic": 0.0}, "transition": {"id": "t_complaints_to_exam", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:17:47.663680Z", "event": "session_started", "session_id": "QZ3-L9X-yZu62oRjDY_rsQ"}
+{"ts": "2026-05-19T22:17:47.665485Z", "event": "section_submitted", "session_id": "QZ3-L9X-yZu62oRjDY_rsQ", "section": "complaints", "marked_places": [], "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "transition": {"id": "t_complaints_to_exam", "fired": false}, "warning_shown": "Не выявлено подозрений для диагностики гипертрофического и атрофического ХАТ по жалобам."}
+{"ts": "2026-05-19T22:17:56.448893Z", "event": "session_started", "session_id": "FmhSjdsqYi527qzP7fRSrw"}
+{"ts": "2026-05-19T22:17:56.541142Z", "event": "diagnosis_completed", "session_id": "FmhSjdsqYi527qzP7fRSrw", "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "winner": null, "tie": true}
+{"ts": "2026-05-19T22:17:56.556138Z", "event": "section_submitted", "session_id": "FmhSjdsqYi527qzP7fRSrw", "section": "complaints", "marked_places": ["b1"], "scores_after": {"score_hyper": 2.0, "score_atrophic": 0.0}, "transition": {"id": "t_complaints_to_exam", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:17:56.566199Z", "event": "section_submitted", "session_id": "FmhSjdsqYi527qzP7fRSrw", "section": "instrumental", "marked_places": ["b37"], "scores_after": {"score_hyper": 3.0, "score_atrophic": 0.0}, "transition": {"id": "t_instrumental_to_final", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:17:56.566316Z", "event": "diagnosis_completed", "session_id": "FmhSjdsqYi527qzP7fRSrw", "scores_after": {"score_hyper": 3.0, "score_atrophic": 0.0}, "winner": "hyper", "tie": false}
+{"ts": "2026-05-19T22:18:21.346046Z", "event": "session_started", "session_id": "jxzT_v_6CfMa11WT9toXhg"}
+{"ts": "2026-05-19T22:18:21.356540Z", "event": "session_started", "session_id": "4YNXcoCNCWLqhbLZrqikCQ"}
+{"ts": "2026-05-19T22:18:21.358294Z", "event": "session_started", "session_id": "Nm-KNFtHH-36uZohG0aVyw"}
+{"ts": "2026-05-19T22:18:21.360455Z", "event": "session_started", "session_id": "NyJ0Aov22arLryKOpLl-cQ"}
+{"ts": "2026-05-19T22:18:21.363119Z", "event": "session_started", "session_id": "VN06zGcGTV1dXW5AKbXkdQ"}
+{"ts": "2026-05-19T22:18:21.364834Z", "event": "session_started", "session_id": "W3LlfAQNzYuhwAnYmYw4CQ"}
+{"ts": "2026-05-19T22:18:21.366459Z", "event": "session_started", "session_id": "utTXDzO3sKdhs6ib_8wRfQ"}
+{"ts": "2026-05-19T22:18:21.368567Z", "event": "session_started", "session_id": "FOBJqZ1gTmJ8T84YS6MmdQ"}
+{"ts": "2026-05-19T22:18:21.371801Z", "event": "diagnosis_completed", "session_id": "FOBJqZ1gTmJ8T84YS6MmdQ", "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "winner": null, "tie": true}
+{"ts": "2026-05-19T22:18:21.378798Z", "event": "session_started", "session_id": "Xm_BvP8jokKqUsf_1IInrg"}
+{"ts": "2026-05-19T22:18:21.378906Z", "event": "diagnosis_completed", "session_id": "Xm_BvP8jokKqUsf_1IInrg", "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "winner": null, "tie": true}
+{"ts": "2026-05-19T22:18:21.382862Z", "event": "session_started", "session_id": "vV5-VsofGwhF4NFoO8QHhA"}
+{"ts": "2026-05-19T22:18:21.385799Z", "event": "section_submitted", "session_id": "vV5-VsofGwhF4NFoO8QHhA", "section": "complaints", "marked_places": ["b1", "b4"], "scores_after": {"score_hyper": 3.0, "score_atrophic": 1.0}, "transition": {"id": "t_complaints_to_exam", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:18:21.389093Z", "event": "section_submitted", "session_id": "vV5-VsofGwhF4NFoO8QHhA", "section": "examination", "marked_places": ["b14", "b17"], "scores_after": {"score_hyper": 7.0, "score_atrophic": 1.0}, "transition": {"id": "t_examination_to_lab", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:18:21.390831Z", "event": "section_submitted", "session_id": "vV5-VsofGwhF4NFoO8QHhA", "section": "laboratory", "marked_places": ["b23", "b29"], "scores_after": {"score_hyper": 8.0, "score_atrophic": 2.0}, "transition": {"id": "t_laboratory_to_instrumental", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:18:21.392899Z", "event": "section_submitted", "session_id": "vV5-VsofGwhF4NFoO8QHhA", "section": "instrumental", "marked_places": ["b37"], "scores_after": {"score_hyper": 9.0, "score_atrophic": 2.0}, "transition": {"id": "t_instrumental_to_final", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:18:21.393044Z", "event": "diagnosis_completed", "session_id": "vV5-VsofGwhF4NFoO8QHhA", "scores_after": {"score_hyper": 9.0, "score_atrophic": 2.0}, "winner": "hyper", "tie": false}
+{"ts": "2026-05-19T22:18:21.395552Z", "event": "session_started", "session_id": "NjbD5E7UjpkAs-Mwt88hvQ"}
+{"ts": "2026-05-19T22:18:21.397626Z", "event": "section_submitted", "session_id": "NjbD5E7UjpkAs-Mwt88hvQ", "section": "examination", "marked_places": [], "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "transition": {"id": "t_examination_to_lab", "fired": false}, "warning_shown": "Не выявлено подозрений для диагностики гипертрофического и атрофического ХАТ по осмотру."}
+{"ts": "2026-05-19T22:18:21.399964Z", "event": "session_started", "session_id": "HFN46ifWqudWABaBMSBqVA"}
+{"ts": "2026-05-19T22:18:21.402019Z", "event": "session_started", "session_id": "GTP82l-FQQ6FrYzr7mcPYw"}
+{"ts": "2026-05-19T22:18:21.404713Z", "event": "session_started", "session_id": "-idwWlcxjqep6Nw3KLMdGA"}
+{"ts": "2026-05-19T22:18:21.405096Z", "event": "section_submitted", "session_id": "-idwWlcxjqep6Nw3KLMdGA", "section": "complaints", "marked_places": ["b1"], "scores_after": {"score_hyper": 2.0, "score_atrophic": 0.0}, "transition": {"id": "t_complaints_to_exam", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:18:21.407261Z", "event": "session_started", "session_id": "GKx5PABC6WhUpOjndUzF6g"}
+{"ts": "2026-05-19T22:18:21.408849Z", "event": "section_submitted", "session_id": "GKx5PABC6WhUpOjndUzF6g", "section": "complaints", "marked_places": [], "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "transition": {"id": "t_complaints_to_exam", "fired": false}, "warning_shown": "Не выявлено подозрений для диагностики гипертрофического и атрофического ХАТ по жалобам."}
+{"ts": "2026-05-19T22:18:21.570022Z", "event": "session_started", "session_id": "4pgNEb14-PfLjNNBVSj_XA"}
+{"ts": "2026-05-19T22:18:21.622422Z", "event": "diagnosis_completed", "session_id": "4pgNEb14-PfLjNNBVSj_XA", "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "winner": null, "tie": true}
+{"ts": "2026-05-19T22:18:21.633440Z", "event": "section_submitted", "session_id": "4pgNEb14-PfLjNNBVSj_XA", "section": "complaints", "marked_places": ["b1"], "scores_after": {"score_hyper": 2.0, "score_atrophic": 0.0}, "transition": {"id": "t_complaints_to_exam", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:18:21.644073Z", "event": "session_started", "session_id": "DYOskD3oDilV_hY2Pj3PDA"}
+{"ts": "2026-05-19T22:18:31.451628Z", "event": "session_started", "session_id": "HuJu76avyy3kIxIjJkP2AA"}
+{"ts": "2026-05-19T22:18:31.533766Z", "event": "diagnosis_completed", "session_id": "HuJu76avyy3kIxIjJkP2AA", "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "winner": null, "tie": true}
+{"ts": "2026-05-19T22:18:31.550211Z", "event": "section_submitted", "session_id": "HuJu76avyy3kIxIjJkP2AA", "section": "complaints", "marked_places": ["b1"], "scores_after": {"score_hyper": 2.0, "score_atrophic": 0.0}, "transition": {"id": "t_complaints_to_exam", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:18:31.562118Z", "event": "section_submitted", "session_id": "HuJu76avyy3kIxIjJkP2AA", "section": "examination", "marked_places": [], "scores_after": {"score_hyper": 2.0, "score_atrophic": 0.0}, "transition": {"id": "t_examination_to_lab", "fired": false}, "warning_shown": "Не выявлено подозрений для диагностики гипертрофического и атрофического ХАТ по осмотру."}
+{"ts": "2026-05-19T22:18:31.573153Z", "event": "section_submitted", "session_id": "HuJu76avyy3kIxIjJkP2AA", "section": "instrumental", "marked_places": ["b37"], "scores_after": {"score_hyper": 3.0, "score_atrophic": 0.0}, "transition": {"id": "t_instrumental_to_final", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:18:31.573270Z", "event": "diagnosis_completed", "session_id": "HuJu76avyy3kIxIjJkP2AA", "scores_after": {"score_hyper": 3.0, "score_atrophic": 0.0}, "winner": "hyper", "tie": false}
+{"ts": "2026-05-19T22:18:31.583490Z", "event": "session_started", "session_id": "ow9VIS_T1jFpUeFWdSanmg"}
+{"ts": "2026-05-19T22:18:38.181027Z", "event": "session_started", "session_id": "ZOMGpxxZp3bQJ7yrxguoyQ"}
+{"ts": "2026-05-19T22:18:38.181752Z", "event": "section_submitted", "session_id": "ZOMGpxxZp3bQJ7yrxguoyQ", "section": "complaints", "marked_places": ["b1"], "scores_after": {"score_hyper": 2.0, "score_atrophic": 0.0}, "transition": {"id": "t_complaints_to_exam", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:18:38.191062Z", "event": "session_started", "session_id": "RToJE0FSHqA4SHnKPjVYdA"}
+{"ts": "2026-05-19T22:18:47.011504Z", "event": "session_started", "session_id": "X2Dj1q4MfhlRk3gZigBMrg"}
+{"ts": "2026-05-19T22:18:47.112806Z", "event": "diagnosis_completed", "session_id": "X2Dj1q4MfhlRk3gZigBMrg", "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "winner": null, "tie": true}
+{"ts": "2026-05-19T22:18:47.135398Z", "event": "section_submitted", "session_id": "X2Dj1q4MfhlRk3gZigBMrg", "section": "complaints", "marked_places": ["b1"], "scores_after": {"score_hyper": 2.0, "score_atrophic": 0.0}, "transition": {"id": "t_complaints_to_exam", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:18:47.146613Z", "event": "section_submitted", "session_id": "X2Dj1q4MfhlRk3gZigBMrg", "section": "complaints", "marked_places": [], "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "transition": {"id": "t_complaints_to_exam", "fired": false}, "warning_shown": "Не выявлено подозрений для диагностики гипертрофического и атрофического ХАТ по жалобам."}
+{"ts": "2026-05-19T22:18:47.157508Z", "event": "section_submitted", "session_id": "X2Dj1q4MfhlRk3gZigBMrg", "section": "instrumental", "marked_places": ["b37"], "scores_after": {"score_hyper": 1.0, "score_atrophic": 0.0}, "transition": {"id": "t_instrumental_to_final", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-19T22:18:47.157634Z", "event": "diagnosis_completed", "session_id": "X2Dj1q4MfhlRk3gZigBMrg", "scores_after": {"score_hyper": 1.0, "score_atrophic": 0.0}, "winner": "hyper", "tie": false}
+{"ts": "2026-05-19T22:18:47.170109Z", "event": "session_started", "session_id": "uq4CW5TlpnO6C7KAZXvCZA"}
+{"ts": "2026-05-19T22:20:41.804464Z", "event": "session_started", "session_id": "yM8GGo_DZooWWTEA_uWbPw"}
+{"ts": "2026-05-20T19:29:10.765601Z", "event": "session_started", "session_id": "SMpb2RzX-BbA_7fk-UJEww"}
+{"ts": "2026-05-20T20:27:47.653548Z", "event": "session_started", "session_id": "OgO0qHWRBY16noc-mTJAXg"}
+{"ts": "2026-05-20T20:35:44.117811Z", "event": "session_started", "session_id": "tI3Y-lkRtiJAxYi9Zs70dA"}
+{"ts": "2026-05-20T20:35:44.127831Z", "event": "session_started", "session_id": "9vowtO2gdXeZICw6xe6vNg"}
+{"ts": "2026-05-20T20:35:44.129721Z", "event": "session_started", "session_id": "7x4ewi5ZlGQoKgDgMOs3FQ"}
+{"ts": "2026-05-20T20:35:44.131491Z", "event": "session_started", "session_id": "rOEaozr77rzFeXHNK7RKPg"}
+{"ts": "2026-05-20T20:35:44.133471Z", "event": "session_started", "session_id": "6dkuwiKfS6PjseuO7uAGKw"}
+{"ts": "2026-05-20T20:35:44.135360Z", "event": "session_started", "session_id": "Bvx6j9wr9ZvDhYSb6sJPxg"}
+{"ts": "2026-05-20T20:35:44.137062Z", "event": "session_started", "session_id": "6ubXhLwQtyVpgfK2WcMTMA"}
+{"ts": "2026-05-20T20:35:44.138606Z", "event": "session_started", "session_id": "-aIR0bhR-pwA0znGCwVRAg"}
+{"ts": "2026-05-20T20:35:44.139867Z", "event": "diagnosis_completed", "session_id": "-aIR0bhR-pwA0znGCwVRAg", "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "winner": null, "tie": true}
+{"ts": "2026-05-20T20:35:44.145890Z", "event": "session_started", "session_id": "soqCisgjImLrhLlRz6cT2w"}
+{"ts": "2026-05-20T20:35:44.145964Z", "event": "diagnosis_completed", "session_id": "soqCisgjImLrhLlRz6cT2w", "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "winner": null, "tie": true}
+{"ts": "2026-05-20T20:35:44.148105Z", "event": "session_started", "session_id": "T3qBqTYz0jls1L_hTx7W_A"}
+{"ts": "2026-05-20T20:35:44.150087Z", "event": "section_submitted", "session_id": "T3qBqTYz0jls1L_hTx7W_A", "section": "complaints", "marked_places": ["b1", "b4"], "scores_after": {"score_hyper": 3.0, "score_atrophic": 1.0}, "transition": {"id": "t_complaints_to_exam", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-20T20:35:44.151657Z", "event": "section_submitted", "session_id": "T3qBqTYz0jls1L_hTx7W_A", "section": "examination", "marked_places": ["b14"], "scores_after": {"score_hyper": 5.0, "score_atrophic": 1.0}, "transition": {"id": "t_examination_to_lab", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-20T20:35:44.153029Z", "event": "section_submitted", "session_id": "T3qBqTYz0jls1L_hTx7W_A", "section": "laboratory", "marked_places": ["b23", "b29"], "scores_after": {"score_hyper": 6.0, "score_atrophic": 2.0}, "transition": {"id": "t_laboratory_to_instrumental", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-20T20:35:44.154200Z", "event": "section_submitted", "session_id": "T3qBqTYz0jls1L_hTx7W_A", "section": "instrumental", "marked_places": ["b37"], "scores_after": {"score_hyper": 7.0, "score_atrophic": 2.0}, "transition": {"id": "t_instrumental_to_final", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-20T20:35:44.154290Z", "event": "diagnosis_completed", "session_id": "T3qBqTYz0jls1L_hTx7W_A", "scores_after": {"score_hyper": 7.0, "score_atrophic": 2.0}, "winner": "hyper", "tie": false}
+{"ts": "2026-05-20T20:35:44.156004Z", "event": "session_started", "session_id": "URFnrSm1pN7Zi9K6g54d2A"}
+{"ts": "2026-05-20T20:35:44.159305Z", "event": "session_started", "session_id": "ew11reiFTpJJ6rsId9Ez9g"}
+{"ts": "2026-05-20T20:35:44.160954Z", "event": "session_started", "session_id": "NIAIREdIvjc40kPn5Y0SAQ"}
+{"ts": "2026-05-20T20:35:44.162796Z", "event": "session_started", "session_id": "fO2RYOLrjKLO-Eaw5x6lAg"}
+{"ts": "2026-05-20T20:35:44.163045Z", "event": "section_submitted", "session_id": "fO2RYOLrjKLO-Eaw5x6lAg", "section": "complaints", "marked_places": ["b1"], "scores_after": {"score_hyper": 2.0, "score_atrophic": 0.0}, "transition": {"id": "t_complaints_to_exam", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-20T20:35:44.166789Z", "event": "session_started", "session_id": "or_XPTwpXomdcpdgqipFBA"}
+{"ts": "2026-05-20T20:35:44.168189Z", "event": "section_submitted", "session_id": "or_XPTwpXomdcpdgqipFBA", "section": "complaints", "marked_places": [], "scores_after": {"score_hyper": 0.0, "score_atrophic": 0.0}, "transition": {"id": "t_complaints_to_exam", "fired": false}, "warning_shown": "Не выявлено подозрений для диагностики гипертрофического и атрофического ХАТ по жалобам."}
+{"ts": "2026-05-20T20:35:48.635938Z", "event": "session_started", "session_id": "YhZzNco4WxFqaI_DccLxVA"}
+{"ts": "2026-05-20T22:40:17.410984Z", "event": "session_started", "session_id": "8ppGFU43V6t-9j3ETIqcyg"}
+{"ts": "2026-05-20T22:40:30.379205Z", "event": "section_submitted", "session_id": "8ppGFU43V6t-9j3ETIqcyg", "section": "complaints", "marked_places": ["b3", "b4"], "scores_after": {"score_hyper": 2.0, "score_atrophic": 1.0}, "transition": {"id": "t_complaints_to_exam", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-20T22:40:36.262829Z", "event": "section_submitted", "session_id": "8ppGFU43V6t-9j3ETIqcyg", "section": "examination", "marked_places": ["b14", "b15", "b16", "b18"], "scores_after": {"score_hyper": 7.0, "score_atrophic": 3.0}, "transition": {"id": "t_examination_to_lab", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-20T22:40:49.333668Z", "event": "section_submitted", "session_id": "8ppGFU43V6t-9j3ETIqcyg", "section": "laboratory", "marked_places": ["b24", "b25", "b30", "b32", "b34"], "scores_after": {"score_hyper": 9.0, "score_atrophic": 6.0}, "transition": {"id": "t_laboratory_to_instrumental", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-20T22:40:53.738132Z", "event": "section_submitted", "session_id": "8ppGFU43V6t-9j3ETIqcyg", "section": "instrumental", "marked_places": ["b37", "b38"], "scores_after": {"score_hyper": 11.0, "score_atrophic": 6.0}, "transition": {"id": "t_instrumental_to_final", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-20T22:40:53.738402Z", "event": "diagnosis_completed", "session_id": "8ppGFU43V6t-9j3ETIqcyg", "scores_after": {"score_hyper": 11.0, "score_atrophic": 6.0}, "winner": "hyper", "tie": false}
+{"ts": "2026-05-20T22:41:02.437160Z", "event": "section_submitted", "session_id": "8ppGFU43V6t-9j3ETIqcyg", "section": "instrumental", "marked_places": ["b37", "b38"], "scores_after": {"score_hyper": 11.0, "score_atrophic": 6.0}, "transition": {"id": "t_instrumental_to_final", "fired": true}, "warning_shown": null}
+{"ts": "2026-05-20T22:41:02.438468Z", "event": "diagnosis_completed", "session_id": "8ppGFU43V6t-9j3ETIqcyg", "scores_after": {"score_hyper": 11.0, "score_atrophic": 6.0}, "winner": "hyper", "tie": false}
+{"ts": "2026-05-21T05:03:49.730108Z", "event": "session_started", "session_id": "KWUxe0aLthOcHBQqvVFVdw"}
