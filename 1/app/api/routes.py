@@ -61,6 +61,7 @@ def _section_context(session: SessionData, step: int) -> dict[str, Any]:
             "id": place.id,
             "label": place.label,
             "input_type": place.input_type,
+            "show_threshold_hint": place.show_threshold_hint,
             "checked": session.answers.get(place.id, False),
         }
         if place.input_type == "exclusive_choice" and place.exclusive_group:

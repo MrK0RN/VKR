@@ -24,7 +24,9 @@
   <div class="field {% if place.input_type == 'threshold_yes_no' %}field-threshold{% endif %}">
     {% if place.input_type == 'threshold_yes_no' %}
     <p class="label">{{ place.label }}</p>
+    {% if place.show_threshold_hint %}
     <p class="threshold-hint">Показатель превышает порог?</p>
+    {% endif %}
     <div class="radio-row">
       <label><input type="radio" name="{{ place.id }}" value="yes" {% if place.checked %}checked{% endif %}> Да</label>
       <label><input type="radio" name="{{ place.id }}" value="no" {% if not place.checked %}checked{% endif %}> Нет</label>

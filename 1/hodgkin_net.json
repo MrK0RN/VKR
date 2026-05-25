@@ -327,7 +327,7 @@
     },
     "b24": {
       "id": "b24",
-      "label": "Возраст: дети/пожилые 0-14 и 35 и старше",
+      "label": "Возраст: 0-14 и 35 и старше",
       "section": "examination",
       "input_type": "boolean",
       "arcs": [
@@ -414,6 +414,7 @@
       "label": "ВЭБ-статус: положительный (EBV+)",
       "section": "laboratory",
       "input_type": "threshold_yes_no",
+      "show_threshold_hint": false,
       "arcs": [
         {
           "target": "score_nodular",
@@ -491,7 +492,7 @@
     },
     "b38": {
       "id": "b38",
-      "label": "Полиморфное клеточное микроокружение (лимфоциты, эозинофилы, плазматические клетки, гистиоциты)",
+      "label": "Биопсия: Полиморфное клеточное микроокружение (лимфоциты, эозинофилы, плазматические клетки, гистиоциты)",
       "section": "laboratory",
       "input_type": "boolean",
       "arcs": [

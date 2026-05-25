@@ -28,6 +28,7 @@ class PetriNet:
                 label=p["label"],
                 section=p.get("section", ""),
                 input_type=p.get("input_type", "boolean"),
+                show_threshold_hint=p.get("show_threshold_hint", True),
                 arcs=arcs,
                 exclusive_group=p.get("exclusive_group"),
                 place_type=p.get("place_type"),

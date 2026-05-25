@@ -16,6 +16,7 @@ class Place:
     label: str
     section: str
     input_type: str = "boolean"
+    show_threshold_hint: bool = True
     arcs: list[Arc] = field(default_factory=list)
     exclusive_group: str | None = None
     place_type: str | None = None
