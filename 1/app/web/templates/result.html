@@ -1,81 +1,86 @@
 {% extends "base.html" %}
 {% block title %}Результат диагностики{% endblock %}
 {% block content %}
-<h2>Результат</h2>
+{% set max_score = [result.score_nodular, result.score_mixed]|max %}
+{% set pct_n = (result.score_nodular / max_score * 100) if max_score > 0 else 0 %}
+{% set pct_m = (result.score_mixed / max_score * 100) if max_score > 0 else 0 %}
 
-<div class="scores">
-  <div class="score-card nodular">
-    <h3>{{ forms.nodular.label }}</h3>
-    <p class="score-value">{{ "%.0f"|format(result.score_nodular) }}</p>
-    <p class="score-id">позиция {{ forms.nodular.place_id }}</p>
+<div class="result-page">
+  <header class="result-header">
+    <span class="result-tag">Итог</span>
+    <p class="result-verdict-text">
+      {% if result.tie and result.score_nodular == 0 and result.score_mixed == 0 %}
+      Обе формы: <strong>0 / 0</strong> баллов
+      {% elif result.tie %}
+      <strong>Равновероятны</strong> — {{ result.score_nodular|int }} / {{ result.score_mixed|int }}
+      {% else %}
+      Вероятнее: <strong>{{ result.winner_label }}</strong>
+      {% endif %}
+    </p>
+  </header>
+
+  <div class="result-bars" role="img" aria-label="Сравнение баллов">
+    <div class="result-bar-row nodular{% if not result.tie and result.winner == 'nodular' %} is-winner{% endif %}">
+      <div class="result-bar-meta">
+        <span class="result-bar-label">{{ forms.nodular.label }}</span>
+        <span class="result-bar-value">{{ "%.0f"|format(result.score_nodular) }}</span>
+      </div>
+      <div class="result-bar-track">
+        <div class="result-bar-fill" style="width: {{ pct_n }}%"></div>
+      </div>
+    </div>
+    <div class="result-bar-row mixed{% if not result.tie and result.winner == 'mixed' %} is-winner{% endif %}">
+      <div class="result-bar-meta">
+        <span class="result-bar-label">{{ forms.mixed.label }}</span>
+        <span class="result-bar-value">{{ "%.0f"|format(result.score_mixed) }}</span>
+      </div>
+      <div class="result-bar-track">
+        <div class="result-bar-fill" style="width: {{ pct_m }}%"></div>
+      </div>
+    </div>
   </div>
-  <div class="score-card mixed">
-    <h3>{{ forms.mixed.label }}</h3>
-    <p class="score-value">{{ "%.0f"|format(result.score_mixed) }}</p>
-    <p class="score-id">позиция {{ forms.mixed.place_id }}</p>
-  </div>
-</div>
 
-<div class="verdict">
-  {% if result.tie and result.score_nodular == 0 and result.score_mixed == 0 %}
-  <p>Обе формы: <strong>0 / 0</strong> баллов. Минимальный порог не применяется — результат отображается как есть.</p>
-  {% elif result.tie %}
-  <p><strong>Формы равновероятны по баллам</strong> ({{ result.score_nodular }} / {{ result.score_mixed }}).</p>
-  {% else %}
-  <p>Наиболее вероятная форма: <strong>{{ result.winner_label }}</strong></p>
-  {% endif %}
-</div>
-
-{% if intermediate %}
-<section class="intermediate">
-  <h3>Промежуточные позиции сети</h3>
-  <ul>
-    {% for ip in intermediate %}
-    <li>{{ ip.label }} ({{ ip.id }})</li>
-    {% endfor %}
-  </ul>
-</section>
-{% endif %}
-
-{% if warnings %}
-<section class="warnings">
-  <h3>Предупреждения на переходах</h3>
-  <ul>
-    {% for w in warnings %}
-    <li>{{ w }}</li>
-    {% endfor %}
-  </ul>
-</section>
-{% endif %}
-
-{% if result.contributions %}
-<section class="explain">
-  <h3>Вклад признаков</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Признак</th>
-        <th>Нодулярный</th>
-        <th>Смешанно-клеточный</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for c in result.contributions %}
-      <tr>
-        <td>{{ c.label }} <span class="pid">({{ c.place_id }})</span></td>
-        <td>{% if c.score_nodular %}+{{ c.score_nodular|int }}{% else %}—{% endif %}</td>
-        <td>{% if c.score_mixed %}+{{ c.score_mixed|int }}{% else %}—{% endif %}</td>
-      </tr>
+  {% if warnings %}
+  <section class="result-warnings">
+    <h3>Предупреждения</h3>
+    <ul>
+      {% for w in warnings %}
+      <li>{{ w }}</li>
       {% endfor %}
-    </tbody>
-  </table>
-</section>
-{% endif %}
+    </ul>
+  </section>
+  {% endif %}
 
-<div class="actions">
-  <a href="/step/4" class="btn btn-secondary">Назад к инструментальным</a>
-  <form method="post" action="/reset" style="display:inline">
-    <button type="submit" class="btn btn-primary">Новый опрос</button>
-  </form>
+  {% if result.contributions %}
+  <section class="result-contrib">
+    <h3>Вклад признаков</h3>
+    <ul class="contrib-list">
+      {% for c in result.contributions %}
+      <li class="contrib-item">
+        <span class="contrib-name">{{ c.label }}<span class="pid">{{ c.place_id }}</span></span>
+        <span class="contrib-vals">
+          <span class="contrib-val nodular{% if c.score_nodular %} has-score{% endif %}">
+            {% if c.score_nodular %}+{{ c.score_nodular|int }}{% else %}—{% endif %}
+          </span>
+          <span class="contrib-val mixed{% if c.score_mixed %} has-score{% endif %}">
+            {% if c.score_mixed %}+{{ c.score_mixed|int }}{% else %}—{% endif %}
+          </span>
+        </span>
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="contrib-legend">
+      <span class="contrib-legend-item nodular">Нодулярный</span>
+      <span class="contrib-legend-item mixed">Смешанно-клеточный</span>
+    </div>
+  </section>
+  {% endif %}
+
+  <div class="actions">
+    <a href="/step/4" class="btn btn-secondary">Назад</a>
+    <form method="post" action="/reset" style="display:inline">
+      <button type="submit" class="btn btn-primary">Новый опрос</button>
+    </form>
+  </div>
 </div>
 {% endblock %}

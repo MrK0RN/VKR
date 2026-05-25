@@ -32,6 +32,7 @@ class Transition:
     intermediate_on_fire: dict[str, str] = field(default_factory=dict)
     output_places: list[str] = field(default_factory=list)
     warning_message: str | None = None
+    min_branch_weights: dict[str, float] = field(default_factory=dict)
 
 
 @dataclass

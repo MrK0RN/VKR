@@ -6,10 +6,15 @@
   <title>{% block title %}Дифференциальная диагностика ХАТ{% endblock %}</title>
   <link rel="stylesheet" href="/static/style.css">
 </head>
-<body>
+<body class="theme-hashimoto">
   <header class="header">
-    <h1>Дифференциальная диагностика ХАТ</h1>
-    <p class="subtitle">Сеть Петри — опросник по разделам</p>
+    <div class="header-inner">
+      <span class="header-badge" aria-hidden="true">ЩЖ</span>
+      <div>
+        <h1>Дифференциальная диагностика ХАТ</h1>
+        <p class="subtitle">Хронический аутоиммунный тиреоидит — опросник по разделам</p>
+      </div>
+    </div>
   </header>
   <main class="container">
     {% block content %}{% endblock %}

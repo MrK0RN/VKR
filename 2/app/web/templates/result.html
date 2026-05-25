@@ -1,70 +1,86 @@
 {% extends "base.html" %}
 {% block title %}Результат диагностики{% endblock %}
 {% block content %}
-<h2>Результат</h2>
+{% set max_score = [result.score_hyper, result.score_atrophic]|max %}
+{% set pct_h = (result.score_hyper / max_score * 100) if max_score > 0 else 0 %}
+{% set pct_a = (result.score_atrophic / max_score * 100) if max_score > 0 else 0 %}
 
-<div class="scores">
-  <div class="score-card hyper">
-    <h3>{{ forms.hyper.label }}</h3>
-    <p class="score-value">{{ "%.0f"|format(result.score_hyper) }}</p>
-    <p class="score-id">позиция {{ forms.hyper.place_id }}</p>
+<div class="result-page">
+  <div class="result-orbs">
+    <div class="result-orb hyper{% if not result.tie and result.winner == 'hyper' %} is-winner{% endif %}">
+      <div class="orb-ring" style="--pct: {{ pct_h }}">
+        <span class="orb-value">{{ "%.0f"|format(result.score_hyper) }}</span>
+      </div>
+      <p class="orb-label">{{ forms.hyper.label }}</p>
+    </div>
+
+    <div class="result-divider" aria-hidden="true">
+      <span class="result-divider-line"></span>
+      <span class="result-divider-dot"></span>
+      <span class="result-divider-line"></span>
+    </div>
+
+    <div class="result-orb atrophic{% if not result.tie and result.winner == 'atrophic' %} is-winner{% endif %}">
+      <div class="orb-ring" style="--pct: {{ pct_a }}">
+        <span class="orb-value">{{ "%.0f"|format(result.score_atrophic) }}</span>
+      </div>
+      <p class="orb-label">{{ forms.atrophic.label }}</p>
+    </div>
   </div>
-  <div class="score-card atrophic">
-    <h3>{{ forms.atrophic.label }}</h3>
-    <p class="score-value">{{ "%.0f"|format(result.score_atrophic) }}</p>
-    <p class="score-id">позиция {{ forms.atrophic.place_id }}</p>
+
+  <div class="result-verdict-card">
+    {% if result.tie and result.score_hyper == 0 and result.score_atrophic == 0 %}
+    <p>Обе формы: <strong>0 / 0</strong> баллов</p>
+    {% elif result.tie %}
+    <p><strong>Формы равновероятны</strong> — {{ result.score_hyper|int }} / {{ result.score_atrophic|int }}</p>
+    {% else %}
+    <p>Наиболее вероятная форма</p>
+    <p class="result-winner-name">{{ result.winner_label }}</p>
+    {% endif %}
   </div>
-</div>
 
-<div class="verdict">
-  {% if result.tie and result.score_hyper == 0 and result.score_atrophic == 0 %}
-  <p>Обе формы: <strong>0 / 0</strong> баллов. Минимальный порог не применяется — результат отображается как есть.</p>
-  {% elif result.tie %}
-  <p><strong>Формы равновероятны по баллам</strong> ({{ result.score_hyper|int }} / {{ result.score_atrophic|int }}).</p>
-  {% else %}
-  <p>Наиболее вероятная форма: <strong>{{ result.winner_label }}</strong></p>
-  {% endif %}
-</div>
-
-{% if warnings %}
-<section class="warnings">
-  <h3>Предупреждения на переходах</h3>
-  <ul>
-    {% for w in warnings %}
-    <li>{{ w }}</li>
-    {% endfor %}
-  </ul>
-</section>
-{% endif %}
-
-{% if result.contributions %}
-<section class="explain">
-  <h3>Вклад признаков</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Признак</th>
-        <th>Гипертрофическая</th>
-        <th>Атрофическая</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for c in result.contributions %}
-      <tr>
-        <td>{{ c.label }} <span class="pid">({{ c.place_id }})</span></td>
-        <td>{% if c.score_hyper %}+{{ c.score_hyper|int }}{% else %}—{% endif %}</td>
-        <td>{% if c.score_atrophic %}+{{ c.score_atrophic|int }}{% else %}—{% endif %}</td>
-      </tr>
+  {% if warnings %}
+  <section class="result-warnings">
+    <h3>Предупреждения</h3>
+    <ul>
+      {% for w in warnings %}
+      <li>{{ w }}</li>
       {% endfor %}
-    </tbody>
-  </table>
-</section>
-{% endif %}
+    </ul>
+  </section>
+  {% endif %}
 
-<div class="actions">
-  <a href="/step/{{ total_steps }}" class="btn btn-secondary">Назад к инструментальным</a>
-  <form method="post" action="/reset" style="display:inline">
-    <button type="submit" class="btn btn-primary">Новый опрос</button>
-  </form>
+  {% if result.contributions %}
+  <section class="result-contrib">
+    <h3>Вклад признаков</h3>
+    <div class="contrib-grid">
+      {% for c in result.contributions %}
+      <article class="contrib-card">
+        <p class="contrib-card-name">{{ c.label }}</p>
+        <p class="contrib-card-id">{{ c.place_id }}</p>
+        <div class="contrib-card-scores">
+          <span class="contrib-pill hyper{% if c.score_hyper %} has-score{% endif %}">
+            {% if c.score_hyper %}+{{ c.score_hyper|int }}{% else %}—{% endif %}
+          </span>
+          <span class="contrib-pill atrophic{% if c.score_atrophic %} has-score{% endif %}">
+            {% if c.score_atrophic %}+{{ c.score_atrophic|int }}{% else %}—{% endif %}
+          </span>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="contrib-legend">
+      <span class="contrib-legend-item hyper">Гипертрофическая</span>
+      <span class="contrib-legend-item atrophic">Атрофическая</span>
+    </div>
+  </section>
+  {% endif %}
+
+  <div class="actions">
+    <a href="/step/{{ total_steps }}" class="btn btn-secondary">Назад</a>
+    <form method="post" action="/reset" style="display:inline">
+      <button type="submit" class="btn btn-primary">Новый опрос</button>
+    </form>
+  </div>
 </div>
 {% endblock %}

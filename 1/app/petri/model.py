@@ -62,6 +62,9 @@ class PetriNet:
                 intermediate_on_fire=dict(t.get("intermediate_on_fire", {})),
                 output_places=list(t.get("output_places", [])),
                 warning_message=warning.get("message"),
+                min_branch_weights={
+                    k: float(v) for k, v in (t.get("min_branch_weights") or {}).items()
+                },
             )
 
     def get_section(self, section_id: str) -> Section | None:

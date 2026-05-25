@@ -9,7 +9,7 @@
       },
       "mixed": {
         "place_id": "b53",
-        "label": "Смешанно-клеточный склероз",
+        "label": "Смешанно-клеточный вариант",
         "score_key": "score_mixed"
       }
     },
@@ -37,7 +37,7 @@
     },
     "b12": {
       "id": "b12",
-      "label": "Промежуточная позиция: ветка смешанно-клеточного склероза (после осмотра)",
+      "label": "Промежуточная позиция: ветка смешанно-клеточного варианта (после осмотра)",
       "branch": "mixed",
       "after_section": "examination"
     },
@@ -49,7 +49,7 @@
     },
     "b27": {
       "id": "b27",
-      "label": "Промежуточная позиция: ветка смешанно-клеточного склероза (после лаборатории)",
+      "label": "Промежуточная позиция: ветка смешанно-клеточного варианта (после лаборатории)",
       "branch": "mixed",
       "after_section": "laboratory"
     },
@@ -61,7 +61,7 @@
     },
     "b43": {
       "id": "b43",
-      "label": "Промежуточная позиция: ветка смешанно-клеточного склероза (после инструментальных)",
+      "label": "Промежуточная позиция: ветка смешанно-клеточного варианта (после инструментальных)",
       "branch": "mixed",
       "after_section": "instrumental"
     }
@@ -188,7 +188,7 @@
       "input_type": "exclusive_choice",
       "exclusive_group": "sex",
       "arcs": [
-        { "target": "score_nodular", "weight": 2 },
+        { "target": "score_nodular", "weight": 1 },
         { "target": "score_mixed", "weight": 1 }
       ]
     },
@@ -208,42 +208,42 @@
       "label": "Увеличение периферических лимфоузлов",
       "section": "examination",
       "input_type": "boolean",
-      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+      "arcs": [{ "target": "score_mixed", "weight": 1 }]
     },
     "b22": {
       "id": "b22",
       "label": "Увеличение абдоминальных лимфоузлов",
       "section": "examination",
       "input_type": "boolean",
-      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+      "arcs": [{ "target": "score_mixed", "weight": 1 }]
     },
     "b23": {
       "id": "b23",
       "label": "Увеличение забрюшинных лимфоузлов",
       "section": "examination",
       "input_type": "boolean",
-      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+      "arcs": [{ "target": "score_mixed", "weight": 1 }]
     },
     "b24": {
       "id": "b24",
-      "label": "Возраст: дети/пожилые 0–14 и 35 и старше",
+      "label": "Возраст: 0–14 и 35 и старше",
       "section": "examination",
       "input_type": "boolean",
-      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+      "arcs": [{ "target": "score_mixed", "weight": 1 }]
     },
     "b25": {
       "id": "b25",
       "label": "Наличие болезни ВИЧ",
       "section": "examination",
       "input_type": "boolean",
-      "arcs": [{ "target": "score_mixed", "weight": 2 }]
+      "arcs": [{ "target": "score_mixed", "weight": 1 }]
     },
     "b28": {
       "id": "b28",
       "label": "EBV− (<20%)",
       "section": "laboratory",
       "input_type": "threshold_yes_no",
-      "arcs": [{ "target": "score_mixed", "weight": 2 }]
+      "arcs": [{ "target": "score_nodular", "weight": 2 }]
     },
     "b29": {
       "id": "b29",
@@ -271,7 +271,7 @@
     },
     "b32": {
       "id": "b32",
-      "label": "Лейкоцитоз (>11×10⁹/л, нейтрофилы 60–75%)",
+      "label": "Лейкоцитоз (>11×10⁹/л нейтрофилы 60–75%)",
       "section": "laboratory",
       "input_type": "threshold_yes_no",
       "arcs": [
@@ -281,7 +281,7 @@
     },
     "b33": {
       "id": "b33",
-      "label": "Лимфопения (<1×10⁹/л)",
+      "label": "Лимфопения (<1 × 10⁹/л)",
       "section": "laboratory",
       "input_type": "threshold_yes_no",
       "arcs": [
@@ -304,21 +304,21 @@
       "label": "Баланс CD4+/CD8+ T-клеток или CD8+ выше",
       "section": "laboratory",
       "input_type": "boolean",
-      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+      "arcs": [{ "target": "score_mixed", "weight": 1 }]
     },
     "b36": {
       "id": "b36",
       "label": "Повышение ЩФ (кости/печень >150–300 Ед/л)",
       "section": "laboratory",
       "input_type": "threshold_yes_no",
-      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+      "arcs": [{ "target": "score_mixed", "weight": 1 }]
     },
     "b37": {
       "id": "b37",
       "label": "Увеличение СОЭ (>50 мм/ч)",
       "section": "laboratory",
       "input_type": "threshold_yes_no",
-      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+      "arcs": [{ "target": "score_mixed", "weight": 1 }]
     },
     "b38": {
       "id": "b38",
@@ -332,21 +332,21 @@
       "label": "Анемия (Hb <130 г/л у мужчин, <120 г/л у небеременных женщин, <110 г/л у беременных)",
       "section": "laboratory",
       "input_type": "threshold_yes_no",
-      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+      "arcs": [{ "target": "score_mixed", "weight": 1 }]
     },
     "b40": {
       "id": "b40",
       "label": "Эозинофилия (>0.4×10⁹/л)",
       "section": "laboratory",
       "input_type": "threshold_yes_no",
-      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+      "arcs": [{ "target": "score_mixed", "weight": 1 }]
     },
     "b41": {
       "id": "b41",
       "label": "Тромбоцитоз (>450×10⁹/л)",
       "section": "laboratory",
       "input_type": "threshold_yes_no",
-      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+      "arcs": [{ "target": "score_mixed", "weight": 1 }]
     },
     "b44": {
       "id": "b44",
@@ -395,14 +395,14 @@
       "label": "КТ/ПЭТ: диффузная абдоминальная лимфаденопатия + экстранодальные очаги",
       "section": "instrumental",
       "input_type": "boolean",
-      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+      "arcs": [{ "target": "score_mixed", "weight": 1 }]
     },
     "b51": {
       "id": "b51",
       "label": "УЗИ: поражение абдоминальных/забрюшинных лимфоузлов (множественное)",
       "section": "instrumental",
       "input_type": "boolean",
-      "arcs": [{ "target": "score_nodular", "weight": 1 }]
+      "arcs": [{ "target": "score_mixed", "weight": 1 }]
     },
     "b52": {
       "id": "b52",
@@ -412,7 +412,7 @@
     },
     "b53": {
       "id": "b53",
-      "label": "Смешанно-клеточный склероз",
+      "label": "Смешанно-клеточный вариант",
       "section": "final",
       "place_type": "diagnosis_output"
     }
@@ -473,6 +473,9 @@
         "nodular_branch": "b11",
         "mixed_branch": "b12"
       },
+      "min_branch_weights": {
+        "mixed": 6
+      },
       "warning_if_no_tokens": {
         "message": "Не выявлено подозрений на нодулярную или смешанно-клеточную форму по осмотру."
       }
@@ -485,6 +488,10 @@
       "intermediate_on_fire": {
         "nodular_branch": "b26",
         "mixed_branch": "b27"
+      },
+      "min_branch_weights": {
+        "nodular": 4,
+        "mixed": 9
       },
       "warning_if_no_tokens": {
         "message": "Не выявлено подозрений на нодулярную или смешанно-клеточную форму по лабораторным данным."

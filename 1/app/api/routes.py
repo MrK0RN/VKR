@@ -73,6 +73,11 @@ def _section_context(session: SessionData, step: int) -> dict[str, Any]:
         for o in options:
             o["group_unspecified"] = not any_selected
 
+    step_labels = [
+        {"order": s.order, "title": s.title}
+        for s in sorted(net.sections, key=lambda x: x.order)
+    ]
+
     return {
         "section": {
             "id": section.id,
@@ -83,6 +88,7 @@ def _section_context(session: SessionData, step: int) -> dict[str, Any]:
         "exclusive_groups": exclusive_groups,
         "step": step,
         "total_steps": len(net.sections),
+        "step_labels": step_labels,
     }
 
 
@@ -113,13 +119,6 @@ def _render_result(request: Request, session: SessionData, *, status_code: int =
     }
     store.save(session)
     forms = get_net().meta.get("forms", {})
-    net = get_net()
-    intermediate = [
-        {"id": ip["id"], "label": ip["label"]}
-        for pid in result.intermediate_marked
-        if pid in net.intermediate_places
-        for ip in [net.intermediate_places[pid]]
-    ]
     contributions = [
         {
             "place_id": c.place_id,
@@ -145,7 +144,6 @@ def _render_result(request: Request, session: SessionData, *, status_code: int =
             },
             "forms": forms,
             "warnings": list(session.warnings),
-            "intermediate": intermediate,
         },
         status_code=status_code,
     )

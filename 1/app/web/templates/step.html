@@ -1,13 +1,18 @@
 {% extends "base.html" %}
 {% block title %}{{ section.title }} — шаг {{ step }}{% endblock %}
 {% block content %}
-<nav class="steps" aria-label="Прогресс">
-  {% for i in range(1, total_steps + 1) %}
-  <span class="step-dot {% if i == step %}active{% elif i < step %}done{% endif %}">{{ i }}</span>
-  {% endfor %}
+<nav class="stepper" aria-label="Прогресс опроса">
+  <ol class="stepper-list">
+    {% for s in step_labels %}
+    <li class="stepper-item {% if s.order == step %}active{% elif s.order < step %}done{% endif %}">
+      <span class="stepper-num" aria-hidden="true">{{ s.order }}</span>
+      <span class="stepper-label">{{ s.title }}</span>
+    </li>
+    {% endfor %}
+  </ol>
 </nav>
 
-<h2>{{ section.title }}</h2>
+<h2 class="page-title">{{ section.title }}</h2>
 <p class="hint">Шаг {{ step }} из {{ total_steps }}. Отметьте признаки, которые присутствуют у пациента.</p>
 
 {% if pending_warning %}

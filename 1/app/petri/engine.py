@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from typing import Any
 
 from app.petri.model import PetriNet
-from app.petri.net import Marking, TransitionResult
+from app.petri.net import Marking, Transition, TransitionResult
 
 
 @dataclass
@@ -106,6 +106,14 @@ class PetriEngine:
                     mixed += arc.weight
         return nodular, mixed
 
+    def _branch_transition_fired(
+        self, branch_weight: float, branch: str, transition: Transition
+    ) -> bool:
+        min_weight = transition.min_branch_weights.get(branch, 0)
+        if min_weight > 0:
+            return branch_weight >= min_weight
+        return branch_weight > 0
+
     def evaluate_section_transition(self, section_id: str) -> TransitionResult:
         transition = self.net.transition_for_section(section_id)
         if not transition:
@@ -126,8 +134,8 @@ class PetriEngine:
             fired = any_marked
         else:
             nodular_w, mixed_w = self._section_branch_weights(section_id)
-            nodular_fired = nodular_w > 0
-            mixed_fired = mixed_w > 0
+            nodular_fired = self._branch_transition_fired(nodular_w, "nodular", transition)
+            mixed_fired = self._branch_transition_fired(mixed_w, "mixed", transition)
             if nodular_fired and "nodular_branch" in transition.intermediate_on_fire:
                 self.marking.places[transition.intermediate_on_fire["nodular_branch"]] = 1
             if mixed_fired and "mixed_branch" in transition.intermediate_on_fire:
@@ -162,7 +170,7 @@ class PetriEngine:
                 winner_label = forms.get("nodular", {}).get("label", "Нодулярный склероз")
             else:
                 winner = "mixed"
-                winner_label = forms.get("mixed", {}).get("label", "Смешанно-клеточный склероз")
+                winner_label = forms.get("mixed", {}).get("label", "Смешанно-клеточный вариант")
         elif score_n > 0:
             winner_label = "Формы равновероятны по баллам"
 

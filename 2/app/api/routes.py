@@ -111,6 +111,11 @@ def _section_context(net: PetriNet, session: dict[str, Any], step: int) -> dict[
         for o in options:
             o["group_unspecified"] = not any_selected
 
+    step_labels = [
+        {"order": s.order, "title": s.title}
+        for s in sorted(net.sections, key=lambda x: x.order)
+    ]
+
     return {
         "section": {
             "id": section.id,
@@ -122,6 +127,7 @@ def _section_context(net: PetriNet, session: dict[str, Any], step: int) -> dict[
         "exclusive_groups": exclusive_groups,
         "step": step,
         "total_steps": len(net.sections),
+        "step_labels": step_labels,
     }
 
 

@@ -47,7 +47,33 @@ def test_instrumental_any_one_marked(engine: PetriEngine):
 
 def test_exclusive_sex(engine: PetriEngine):
     engine.apply_user_input("b19", True)
-    assert engine.marking.scores["score_nodular"] == 2
+    assert engine.marking.scores["score_nodular"] == 1
     engine.apply_user_input("b20", True)
     assert "b19" not in engine.marking.places
     assert engine.marking.scores["score_nodular"] == 1
+
+
+def test_examination_to_lab_mixed_threshold(engine: PetriEngine):
+    for pid in ("b21", "b22", "b23", "b24", "b25"):
+        engine.apply_user_input(pid, True)
+    tr = engine.evaluate_section_transition("examination")
+    assert tr.mixed_fired is False
+
+    engine.apply_user_input("b18", True)
+    tr = engine.evaluate_section_transition("examination")
+    assert tr.mixed_fired is True
+    assert engine.marking.places.get("b12") == 1
+
+
+def test_laboratory_to_instrumental_thresholds(engine: PetriEngine):
+    engine.apply_user_input("b29", True)
+    engine.apply_user_input("b30", True)
+    engine.apply_user_input("b31", True)
+    tr = engine.evaluate_section_transition("laboratory")
+    assert tr.nodular_fired is False
+    assert tr.mixed_fired is False
+
+    engine.apply_user_input("b28", True)
+    tr = engine.evaluate_section_transition("laboratory")
+    assert tr.nodular_fired is True
+    assert engine.marking.places.get("b26") == 1

@@ -6,10 +6,15 @@
   <title>{% block title %}Лимфома Ходжкина{% endblock %}</title>
   <link rel="stylesheet" href="/static/style.css">
 </head>
-<body>
+<body class="theme-hodgkin">
   <header class="header">
-    <h1>Дифференциальная диагностика лимфомы Ходжкина</h1>
-    <p class="subtitle">Сеть Петри — опросник по разделам</p>
+    <div class="header-inner">
+      <span class="header-badge" aria-hidden="true">ЛХ</span>
+      <div>
+        <h1>Дифференциальная диагностика лимфомы Ходжкина</h1>
+        <p class="subtitle">Сеть Петри — пошаговый опросник</p>
+      </div>
+    </div>
   </header>
   <main class="container">
     {% block content %}{% endblock %}
