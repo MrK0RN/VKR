@@ -94,7 +94,7 @@ def test_full_wizard_with_symptoms_200(client: TestClient):
         "complaints": {"b1", "b4"},
         "examination": {"b19"},
         "laboratory": {"b31"},
-        "instrumental": {"b44"},
+        "instrumental": {"b41"},
     }
     for step in range(1, len(NET.sections) + 1):
         section = NET.get_section_by_order(step)

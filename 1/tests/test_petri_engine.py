@@ -38,11 +38,11 @@ def test_nodular_complaints_branch(engine: PetriEngine):
 
 
 def test_instrumental_any_one_marked(engine: PetriEngine):
-    engine.apply_user_input("b44", True)
+    engine.apply_user_input("b41", True)
     tr = engine.evaluate_section_transition("instrumental")
     assert tr.fired is True
-    assert engine.marking.places.get("b42") == 1
-    assert engine.marking.places.get("b43") == 1
+    assert engine.marking.places.get("b39") == 1
+    assert engine.marking.places.get("b40") == 1
 
 
 def test_exclusive_sex(engine: PetriEngine):
